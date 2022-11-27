@@ -1,0 +1,18 @@
+<div class="component-container">
+<ng-container *ngIf="isBusy">
+  <h1>Loading.....</h1>
+</ng-container>
+
+<ng-container *ngIf="!isBusy">
+  <app-contacts-list
+    [contacts]="contacts"
+    (delete)="onDeleteContact($event)">
+  </app-contacts-list>
+  <app-pagination
+    [pagination]="pagination"
+    (goToNextPage)="onNextPage()"
+    (goToPreviousPage)="onPreviousPage()">
+  </app-pagination>
+</ng-container>
+
+</div>

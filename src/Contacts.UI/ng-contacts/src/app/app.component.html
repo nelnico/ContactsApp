@@ -1,0 +1,34 @@
+<section class="main">
+  <!--navigation-->
+  <nav>
+    <!--logo-->
+    <a routerLink="/" class="logo">
+      <img src="./assets/img/logo.png" />
+    </a>
+    <!--menu-->
+    <ul class="menu">
+      <li>
+        <a routerLink="">Home</a>
+      </li>
+      <li>
+        <a routerLink="contactus">Contact Us</a>
+      </li>
+      <ng-container *ngIf="!(accountService.currentUser$ | async)">
+        <li>
+          <a routerLink="auth/login">Login</a>
+        </li>
+        <li>
+          <a routerLink="auth/register">Register</a>
+        </li>
+      </ng-container>
+      <ng-container *ngIf="accountService.currentUser$ | async as user">
+        <li>
+          <a href="#" (click)="onLogout()">Log out</a>
+        </li>
+      </ng-container>
+    </ul>
+  </nav>
+  <router-outlet></router-outlet>
+</section>
+
+

@@ -1,0 +1,17 @@
+<div class="component-container">
+  Showing page {{ pagination.currentPage }} of
+  {{ pagination.totalPages }} pages.
+  <br />
+  <button
+    [disabled]="pagination.currentPage === 1"
+    (click)="onGoToPreviousPage()"
+  >
+    Previous
+  </button>
+  <button
+    [disabled]="pagination.currentPage === pagination.totalPages"
+    (click)="onGoToNextPage()"
+  >
+    Next
+  </button>
+</div>

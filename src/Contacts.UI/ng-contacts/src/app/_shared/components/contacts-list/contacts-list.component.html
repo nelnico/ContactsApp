@@ -1,0 +1,34 @@
+<ng-container *ngIf="contacts.length === 0">
+  <h1>There are no Contacts</h1>
+</ng-container>
+
+<ng-container *ngIf="contacts.length > 0">
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Region</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of contacts">
+        <td>{{contact.id}}</td>
+        <td>{{contact.fullName}}</td>
+        <td>{{contact.email}}</td>
+        <td>{{contact.phone | phone}}</td>
+        <td>{{contact.age}}</td>
+        <td>{{contact.gender}}</td>
+        <td>{{contact.region}}</td>
+        <td>
+          <a href="#" (click)="onDelete(contact)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
